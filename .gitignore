@@ -5,6 +5,7 @@ build/
 dist/
 wheels/
 *.egg-info
-
+.env
+.keystore.json
 # Virtual environments
 .venv
