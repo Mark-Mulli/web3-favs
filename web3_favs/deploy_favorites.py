@@ -19,7 +19,7 @@ def main():
         compilation_details = compile_code(favs_code, output_formats=['bytecode', 'abi'])
         # print(compilation_details)
     
-    w3 = Web3(Web3.HTTPProvider())
+    w3 = Web3(Web3.HTTPProvider(RPC_URL))
     favs_contract = w3.eth.contract(bytecode=compilation_details["bytecode"], abi=compilation_details["abi"])
     # print(favs_contract)
     
@@ -39,6 +39,8 @@ def main():
     print(f"my TX Hash is {tx_hash}")
     tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
     print(f"Done! Contract deployed to {tx_receipt.contractAddress}")
+    
+    breakpoint()
     
 
 def decrypt_key() -> str:
