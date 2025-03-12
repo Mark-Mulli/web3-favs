@@ -19,15 +19,9 @@ def main():
     
     favorites_contract = boa.load('favorites.vy')
     
-    starting_favorite_number = favorites_contract.retrieve()
-    print(f"The starting favorite number is {starting_favorite_number}")
+    favorites_contract.add_number("Alice", 7)
     
-    print("Storing the new favorite number")
-    favorites_contract.store(7)
-    
-    ending_fav_num = favorites_contract.retrieve()
-    print(f"The ending favorite number is {ending_fav_num}")
-    
+    print(f"Person Data: {favorites_contract.person_list(0)}") 
     
 
 if __name__ == "__main__":
