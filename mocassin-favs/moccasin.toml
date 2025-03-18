@@ -1,0 +1,10 @@
+[project]
+src = "src"
+
+[networks.anvil]
+url = "http://127.0.0.1:8545"
+save_to_db = false
+prompt_live = false
+default_account_name = "anvil0"
+unsafe_password_file = "~/.moccasin/unsafe_passwords/anvil0"
+# You can view all configuration options at https://cyfrin.github.io/moccasin/all_moccasin_toml_parameters.html
