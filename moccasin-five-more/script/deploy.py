@@ -1,4 +1,4 @@
-from src import favorites, favorites_factory
+from src import favorites, favorites_factory, five_more
 from moccasin.boa_tools import VyperContract
 
 def deploy_contract() -> VyperContract:
@@ -15,9 +15,20 @@ def deploy_factory(contract: VyperContract):
     new_favorites_contract.store(77)
     print(f"Stored value: {new_favorites_contract.retrieve()}")
     
+    contract_factory.store_from_factory(0, 88)
+    print(f"Stored value: {new_favorites_contract.retrieve()}")
+    print(f"original contract value: {contract.retrieve()}")
+
+def deploy_five_more():
+    five_more_contract: VyperContract = five_more.deploy()
+    # print(five_more_contract.retrieve())
+    five_more_contract.store(90)
+    print(five_more_contract.retrieve())
+    
 def moccasin_main() -> VyperContract:
     favorites_contract = deploy_contract()
     deploy_factory(favorites_contract)
+    deploy_five_more()
     
     
     
