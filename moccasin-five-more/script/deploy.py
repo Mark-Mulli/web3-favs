@@ -22,9 +22,10 @@ def deploy_factory(contract: VyperContract):
 def deploy_five_more():
     five_more_contract: VyperContract = five_more.deploy()
     # print(five_more_contract.retrieve())
-    five_more_contract.store(90)
-    print(five_more_contract.retrieve())
-    
+    # five_more_contract.store(90)
+    # print(five_more_contract.retrieve())
+    five_more_contract.setBool(True)
+    print(five_more_contract.getBool())
 def moccasin_main() -> VyperContract:
     favorites_contract = deploy_contract()
     deploy_factory(favorites_contract)
